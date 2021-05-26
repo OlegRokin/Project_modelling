@@ -136,11 +136,11 @@ while t < t_lim
         end
     
         if x - x_prev >= 0
-            x_next = x + 10^(-12);
-            gamma = atan( (land(x_next) - land(x))/(x_next - x) );
+            dx = 10^(-12);
+            gamma = atan( (land(x + dx) - land(x - dx))/(2 * dx) );
         elseif x - x_prev < 0
             x_next = x + 10^(-12);
-            gamma = pi + atan( (land(x_next) - land(x))/(x_next - x) );
+            gamma = pi + atan( (land(x + dx) - land(x - dx))/(2 * dx) );
         end
 
         beta = -beta + 2 * gamma;
